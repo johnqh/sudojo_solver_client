@@ -185,7 +185,7 @@ describe('SudojoSolverClient', () => {
 
 			const [url] = mockNetworkClient.get.mock.calls[0] as [string, unknown];
 			expect(url).toContain('autopencilmarks=false');
-			expect(url).toContain('pencilmarks=123%2C456%2C789');
+			expect(url).toContain('pencilmarks=123,456,789');
 			expect(url).toContain('filters=test');
 		});
 	});

@@ -28,6 +28,10 @@ export class SudojoApiError extends Error {
 // URL Search Params Utility
 // =============================================================================
 
+/**
+ * Custom URL params builder that matches Kotlin Params class behavior.
+ * Does NOT URL-encode values to match the server's expectations.
+ */
 const createURLSearchParams = (): {
 	append: (key: string, value: string) => void;
 	toString: () => string;
@@ -41,9 +45,12 @@ const createURLSearchParams = (): {
 			params[key]?.push(value);
 		},
 		toString: (): string => {
-			return Object.entries(params)
-				.flatMap(([key, values]) =>
-					values.map((value) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+			// Match Kotlin Params.toString() - no URL encoding
+			// Keys are sorted alphabetically to match Kotlin behavior
+			const sortedKeys = Object.keys(params).sort();
+			return sortedKeys
+				.flatMap((key) =>
+					(params[key] ?? []).map((value) => `${key}=${value}`)
 				)
 				.join('&');
 		},
