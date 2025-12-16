@@ -1,0 +1,1 @@
+{"root":["./src/sudojosolverclient.ts","./src/index.ts","./src/types.ts","./src/hooks/index.ts","./src/hooks/query-config.ts","./src/hooks/query-keys.ts","./src/hooks/use-solver.ts"],"version":"5.9.3"}
