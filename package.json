@@ -20,7 +20,7 @@
     "format:check": "prettier --check \"src/**/*.ts\" \"tests/**/*.ts\"",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist",
-    "check-all": "npm run lint && npm run typecheck && npm run test:run"
+    "check-all": "bun run lint && bun run typecheck && bun run test:run"
   },
   "keywords": [
     "sudoku",
@@ -29,7 +29,7 @@
     "client"
   ],
   "author": "",
-  "license": "UNLICENSED",
+  "license": "BUSL-1.1",
   "peerDependencies": {
     "@sudobility/di": "^1.5.5",
     "@sudobility/types": "^1.9.31",
